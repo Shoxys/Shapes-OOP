@@ -45,24 +45,21 @@ public class EquilateralTriangle extends Shape2D  {
         double dx = point.getXCord() - centre.getXCord();
         double dy = point.getYCord() - centre.getYCord();
 
-        if (dy <= Math.sqrt(3) * (dx + sideLength / 3) &&
-            dy <= -(Math.sqrt(3) * (dx - sideLength / 3)) &&
-            dy >= - ((Math.sqrt(3) / 6) * sideLength)) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return dy <= Math.sqrt(3) * (dx + sideLength / 3) &&
+                dy <= -(Math.sqrt(3) * (dx - sideLength / 3)) &&
+                dy >= -((Math.sqrt(3) / 6) * sideLength);
     }
 
     @Override
     public Point[] getVertices() {
-        double eqRXCord = centre.getXCord();
+        double eqTXCord = centre.getXCord();
         double eqTYCord = centre.getYCord();
 
-        Point Vertice1 = new Point(eqRXCord, eqRXCord * ((Math.sqrt(3) / 3)) * sideLength);
-        Point Vertice2 = new Point(eqRXcord - SideLength / 2, eqTYCord - ((Math.sqrt(3) / 6) * sideLength);
-        Point Vertice3 = new Point(eqRXCord + sideLength / 2, eqTYCord - ((Math.sqrt(3) / 6) * sideLength));
+        Point Vertice1 = new Point(eqTXCord, eqTYCord + ((Math.sqrt(3) / 3)) * sideLength);
+        Point Vertice2 = new Point(eqTXCord - sideLength / 2, eqTYCord - ((Math.sqrt(3) / 6) * sideLength));
+        Point Vertice3 = new Point(eqTXCord + sideLength / 2, eqTYCord - ((Math.sqrt(3) / 6) * sideLength));
+
+        return new Point[]{Vertice1, Vertice2, Vertice3};
     }
 
 
